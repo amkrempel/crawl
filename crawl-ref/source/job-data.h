@@ -299,6 +299,31 @@ static const map<job_type, job_def> job_data =
       { SK_STEALTH, 2 }, },
 } },
 
+{ JOB_SHEPHERD, {
+    "Sh", "Shepherd",
+    // Fieldwork keeps shepherds in good shape, and gives them lots of
+    // time to think.
+    12, 11, 12,
+    // Most shepherds are common folk.
+    { SP_HUMAN, SP_MINOTAUR, SP_TENGU, SP_TROLL, SP_NAGA,
+      SP_VINE_STALKER, },
+    // Shepherds aren't skilled at magic, beyond a cantrip or two.
+    {
+      SPELL_CHAIN_LIGHTNING,
+      SPELL_SHATTER,
+      SPELL_POLAR_VORTEX,
+      SPELL_FIRE_STORM,
+    },
+    // They should have a light breezy garment, something to read to
+    // pass the time, and a staff to protect their flock
+    { "gold dragon scales plus:9", "scroll of acquirement q:10",
+      "greatsword plus:9 ego:flaming" },
+    WCHOICE_NONE,
+    // and just a couple skill points in stuff you might do around a field.
+    { { SK_FIGHTING, 6 }, { SK_SUMMONING, 8 }, { SK_SPELLCASTING, 3 },
+      { SK_DODGING, 3 }, { SK_ARMOR, 4 } { SK_STEALTH, 1 }, },
+} },
+
 { JOB_SUMMONER, {
     "Su", "Summoner",
     0, 7, 5,

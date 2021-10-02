@@ -46,6 +46,7 @@ enum job_type
 #endif
     JOB_DELVER,
     JOB_CINDER_ACOLYTE,
+    JOB_SHEPHERD,
     NUM_JOBS,                          // always after the last job
 
     JOB_UNKNOWN = 100,
