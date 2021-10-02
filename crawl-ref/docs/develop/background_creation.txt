@@ -88,6 +88,8 @@ herd-watcher:
           { SK_DODGING, 3 }, { SK_ARMOR, 4 } { SK_STEALTH, 1 }, },
     } },
 
+//NOTE FROM AMKREMPEL: ARMOUR, SUMMONINGS!, COMMA! 
+
 That looks like what I expect a shepherd to look like: lightly armed, lightly
 armoured, and just a speck of potential. Other bits of code will ensure any
 weapons and armour are automatically equipped at creation (but not staves or
