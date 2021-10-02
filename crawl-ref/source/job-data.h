@@ -320,8 +320,8 @@ static const map<job_type, job_def> job_data =
       "greatsword plus:9 ego:flaming" },
     WCHOICE_NONE,
     // and just a couple skill points in stuff you might do around a field.
-    { { SK_FIGHTING, 6 }, { SK_SUMMONING, 8 }, { SK_SPELLCASTING, 3 },
-      { SK_DODGING, 3 }, { SK_ARMOR, 4 } { SK_STEALTH, 1 }, },
+    { { SK_FIGHTING, 6 }, { SK_SUMMONINGS, 8 }, { SK_SPELLCASTING, 3 },
+      { SK_DODGING, 3 }, { SK_ARMOUR, 4 }, { SK_STEALTH, 1 }, },
 } },
 
 { JOB_SUMMONER, {
