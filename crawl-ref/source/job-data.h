@@ -317,7 +317,7 @@ static const map<job_type, job_def> job_data =
     // They should have a light breezy garment, something to read to
     // pass the time, and a staff to protect their flock
     { "gold dragon scales plus:9", "scroll of acquirement q:10",
-      "demon blade Leech" },
+      "dagger plus:1" },
     WCHOICE_NONE,
     // and just a couple skill points in stuff you might do around a field.
     { { SK_FIGHTING, 6 }, { SK_SUMMONINGS, 8 }, { SK_SPELLCASTING, 3 },
