@@ -2248,6 +2248,15 @@ static const mutation_def mut_data[] =
     {"The shadows grow bolder once more.", "", ""},
 },
 
+{ MUT_LASER_EYES, 7, 2, mutflag::good, false,
+  "laser eyes",
+
+  {"You can shoot laser beams from your eyes.",
+   "You can shoot BIGGER laser beams from your eyes.", ""},
+  {"Your eyes burn with power.", "Your burning eyes intensify.", ""},
+  {"Your eyes feel refreshed and cease burning.", "Your eyes relax and burn less.", ""},
+},
+
 };
 
 static const mutation_category_def category_mut_data[] =
