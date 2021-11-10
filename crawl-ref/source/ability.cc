@@ -302,6 +302,8 @@ static vector<ability_def> &_get_ability_list()
         { ABIL_NON_ABILITY, "No ability", 0, 0, 0, {}, abflag::none },
         { ABIL_SPIT_POISON, "Spit Poison",
             0, 0, 0, {fail_basis::xl, 20, 1}, abflag::breath },
+        { ABIL_LASER_EYES, "Shoot Eye Lasers",
+            1, 0, 0, {fail_basis::xl, 20, 1}, abflag::breath },
 
         { ABIL_BREATHE_FIRE, "Breathe Fire",
             0, 0, 0, {fail_basis::xl, 30, 1}, abflag::breath },
@@ -1866,6 +1868,9 @@ static int _calc_breath_ability_range(ability_type ability)
     case ABIL_SPIT_POISON:
         range = 5;
         break;
+    case ABIL_LASER_EYES:
+        range = LOS_MAX_RANGE;
+        break;
     case ABIL_BREATHE_MEPHITIC:
     case ABIL_BREATHE_STEAM:
     case ABIL_BREATHE_POISON:
@@ -2151,6 +2156,30 @@ static spret _do_ability(const ability_def& abil, bool fail, dist *target)
             fail_check();
             zapping(ZAP_SPIT_POISON, power, beam);
             you.set_duration(DUR_BREATH_WEAPON, 3 + random2(5));
+        }
+        break;
+    }
+
+    case ABIL_LASER_EYES:      // eye lasers
+    {
+        int power = 25 + (you.experience_level * 2 * you.get_mutation_level(MUT_LASER_EYES));
+        beam.range = _calc_breath_ability_range(abil.ability);
+
+        if (you.get_mutation_level(MUT_MISSING_EYE)) //Ru - Sacrifice an Eye
+            power = power / 2; //only get half power if you only have half as many eyes.
+
+        if (you.get_mutation_level(MUT_EYEBALLS)) // Jiyva mutation.
+            power = power * 4; //if you're all eyes, you're also all eye-lasers!
+
+        if (!spell_direction(*target, beam)
+            || !player_tracer(ZAP_LIGHTNING_BOLT, power, beam))
+        {
+            return spret::abort;
+        }
+        else
+        {
+            fail_check();
+            zapping(ZAP_LIGHTNING_BOLT, power, beam);
         }
         break;
     }
@@ -3643,6 +3672,7 @@ vector<talent> your_talents(bool check_confused, bool include_unusable, bool ign
             ABIL_HOP,
             ABIL_ROLLING_CHARGE,
             ABIL_SPIT_POISON,
+            ABIL_LASER_EYES,
             ABIL_BREATHE_FIRE,
             ABIL_BREATHE_FROST,
             ABIL_BREATHE_POISON,
