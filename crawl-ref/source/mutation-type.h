@@ -8,6 +8,7 @@ enum mutation_type
     MUT_ANTENNAE,       // head
     MUT_BIG_WINGS,
     MUT_BEAK,           // head
+    MUT_BEARD,  //tutorial
     MUT_CLAWS,          // hands
     MUT_FANGS,
     MUT_HOOVES,         // feet
