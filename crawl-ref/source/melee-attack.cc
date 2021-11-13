@@ -918,7 +918,7 @@ public:
 
     int get_damage() const override
     {
-        return damage + you.get_mutation_level(MUT_HORNS) * 10;
+        return damage + you.get_mutation_level(MUT_HORNS) * 3;
     }
 };
 
